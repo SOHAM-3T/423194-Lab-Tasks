@@ -1,0 +1,62 @@
+# Week 7 - CVS and Git Version Control Practice
+
+==========================
+Part 1: CVS Repository
+==========================
+
+1. Initialize a CVS repository:
+cvs -d /path/to/cvsroot init
+
+2. Create a working directory and add project files:
+mkdir cvs_project
+cd cvs_project
+echo "Hello CVS" > file.txt
+
+3. Import the project into CVS:
+cvs -d /path/to/cvsroot import -m "Initial import" cvs_project start v1
+
+4. Checkout the project:
+cd ..
+cvs -d /path/to/cvsroot checkout cvs_project
+
+5. Modify and commit a file:
+cd cvs_project
+echo "New Line" >> file.txt
+cvs commit -m "Added new line"
+
+==========================
+Part 2: Git Repository
+==========================
+
+1. Initialize a Git repository:
+mkdir git_project
+cd git_project
+git init
+
+2. Add and commit files:
+echo "Hello Git" > file.txt
+git add file.txt
+git commit -m "Initial commit"
+
+3. Create a new branch and switch to it:
+git branch feature
+git checkout feature
+
+4. Make changes in the feature branch:
+echo "Feature update" >> file.txt
+git add file.txt
+git commit -m "Updated in feature branch"
+
+5. Switch back to main and modify:
+git checkout main
+echo "Main branch update" >> file.txt
+git add file.txt
+git commit -m "Updated in main branch"
+
+6. Merge feature branch into main:
+git merge feature
+
+7. If conflicts occur, resolve them manually, then:
+git add file.txt
+git commit -m "Resolved merge conflict"
+
