@@ -1,0 +1,68 @@
+
+# Week 8 - Debugging C Programs Using GDB and Core Dumps
+
+===============================
+1. Write a simple buggy C program
+===============================
+
+File: buggy.c
+
+#include <stdio.h>
+
+int main() {
+    int *ptr = NULL;
+    *ptr = 42;  // This will cause a segmentation fault
+    return 0;
+}
+
+------------------------------------------------------------
+
+2. Compile the program with debug symbols:
+
+gcc -g buggy.c -o buggy
+
+------------------------------------------------------------
+
+3. Enable core dumps (if not already enabled):
+
+ulimit -c unlimited
+
+# To make it persistent:
+# Add `ulimit -c unlimited` to ~/.bashrc or ~/.bash_profile
+
+------------------------------------------------------------
+
+4. Run the program to generate core dump:
+
+./buggy
+
+# This will crash and produce a `core` or `core.<pid>` file
+
+------------------------------------------------------------
+
+5. Debug using gdb:
+
+gdb ./buggy core
+
+# Useful gdb commands:
+
+- bt              # Backtrace to see call stack
+- list            # Show source code
+- info locals     # View local variables
+- quit            # Exit gdb
+
+------------------------------------------------------------
+
+6. Bonus: Prevent crash using if-check
+
+#include <stdio.h>
+
+int main() {
+    int *ptr = NULL;
+    if (ptr != NULL) {
+        *ptr = 42;
+    } else {
+        printf("Pointer is NULL\n");
+    }
+    return 0;
+}
