@@ -1,0 +1,70 @@
+# Week 9 - Package Installation using rpm, deb, and apt
+
+===============================
+1. Using RPM (Red Hat based systems)
+===============================
+
+# Install a package
+sudo rpm -ivh package-name.rpm
+
+# Upgrade a package
+sudo rpm -Uvh package-name.rpm
+
+# Remove a package
+sudo rpm -e package-name
+
+# Query installed packages
+rpm -qa
+
+# Get package info
+rpm -qi package-name
+
+# Verify package files
+rpm -V package-name
+
+------------------------------------------------------------
+
+===============================
+2. Using DEB (Debian-based systems like Ubuntu)
+===============================
+
+# Install a .deb package
+sudo dpkg -i package-name.deb
+
+# Fix dependency issues after .deb install
+sudo apt-get install -f
+
+# Remove a package
+sudo dpkg -r package-name
+
+# List installed packages
+dpkg -l
+
+# Get info about a package
+dpkg -s package-name
+
+------------------------------------------------------------
+
+===============================
+3. Using APT (Advanced Package Tool - Debian/Ubuntu)
+===============================
+
+# Update the package list
+sudo apt update
+
+# Upgrade all packages
+sudo apt upgrade
+
+# Install a package
+sudo apt install package-name
+
+# Remove a package
+sudo apt remove package-name
+
+# Search for a package
+apt search package-name
+
+# Show package info
+apt show package-name
+
+------------------------------------------------------------
