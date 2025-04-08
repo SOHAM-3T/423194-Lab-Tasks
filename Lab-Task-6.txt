@@ -1,0 +1,39 @@
+# Week 6 - CPIO Command Practice
+
+1. Create a list of files to archive:
+find . -type f > filelist.txt
+
+2. Create a cpio archive from the file list:
+cpio -ov < filelist.txt > backup.cpio
+
+# -o : create archive
+# -v : verbose (show files being archived)
+
+------------------------------------------------------------
+
+3. Extract files from a cpio archive:
+cpio -idv < backup.cpio
+
+# -i : extract
+# -d : create directories as needed
+# -v : verbose
+
+------------------------------------------------------------
+
+4. List the contents of a cpio archive:
+cpio -it < backup.cpio
+
+# -t : list only (table of contents)
+
+------------------------------------------------------------
+
+5. Backup only .txt files:
+find . -name "*.txt" > txtfiles.txt
+cpio -ov < txtfiles.txt > txt_backup.cpio
+
+------------------------------------------------------------
+
+6. Extract files to a specific directory:
+mkdir extracted
+cd extracted
+cpio -idv < ../backup.cpio
